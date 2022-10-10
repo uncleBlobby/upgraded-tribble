@@ -4,6 +4,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -24,7 +25,10 @@ class Game {
         int cursorX;
         int cursorY;
 
-        Tree trees[TREES_TO_SPAWN];
+        std::vector<Tree> trees;
+        //Tree trees[TREES_TO_SPAWN];
+
+
         Entity entities[MAX_ENTITIES];
 
     public:
@@ -41,7 +45,7 @@ class Game {
         void setCursorX(int x);
         void setCursorY(int y);
 
-        void addTree(int i);
+        void addTree();
 
         void drawTrees(sf::RenderWindow& window) const;
 

@@ -2,10 +2,14 @@
 #define entity_h
 #pragma once
 
+#include <string>
+
 class Entity {
     private:
         float xPos;
         float yPos;
+
+        std::string uuid;
     
     public:
 
@@ -14,6 +18,10 @@ class Entity {
 
         void setXPos(float x);
         void setYPos(float y);
+
+        std::string getID() const;
+        void initID();
+
 };
 
 #endif

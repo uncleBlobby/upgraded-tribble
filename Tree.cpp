@@ -8,7 +8,7 @@ Tree::Tree(){
     height = rand() % 50 + 25;
     width = 10;
 
-    id = "tree"+ (std::to_string(rand() % 10000));
+    initID();
 
     rectangle = sf::RectangleShape(sf::Vector2f(width, height));
     circle = sf::CircleShape(15.f);

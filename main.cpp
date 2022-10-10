@@ -15,7 +15,8 @@ int main(){
     Player player;
 
     for (int i = 0; i < TREES_TO_SPAWN; i++){
-        game.addTree(i);
+        game.addTree();
+        std::cout << "Added tree # " << i << std::endl;
     }
 
     sf::Clock clock;
@@ -31,6 +32,7 @@ int main(){
                 printf("Mouse button clicked!\n");
                 printf("Mouse x: %d\n", event.mouseButton.x);
                 printf("Mouse y: %d\n", event.mouseButton.y);
+                //std::cout << "Test UUID: " << generateUUID() << std::endl;
 
                 /*
                 printf("Tree1.x: %d\n", tree.getXPos());

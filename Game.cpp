@@ -23,12 +23,12 @@ void Game::setCursorY(int y){
     cursorY = y;
 }
 
-void Game::addTree(int i){
-    trees[i] = Tree();
+void Game::addTree(){
+    trees.push_back(Tree());
 }
 
 void Game::drawTrees(sf::RenderWindow& window) const {
-    for (int i = 0; i < TREES_TO_SPAWN; i++){
+    for (int i = 0; i < int(trees.size()); i++){
         trees[i].drawTree(window);
     }
 }
@@ -78,7 +78,7 @@ void Game::checkCursorTarget() const {
         if (cursorX > trees[i].getXPos() && cursorX < (trees[i].getXPos() + trees[i].getWidth())){
             if (cursorY > trees[i].getYPos() && cursorY < (trees[i].getYPos() + trees[i].getHeight())){
                 // printf("Cursor is over tree: %s\n", trees[i].getId());
-                std::cout << "Cursor is over tree: " << trees[i].getId() << std::endl;
+                std::cout << "Cursor is over tree: " << trees[i].getID() << std::endl;
             } else {
                 printf("Cursor is not over tree!\n");
             }
