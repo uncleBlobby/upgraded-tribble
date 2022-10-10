@@ -44,12 +44,14 @@ int main(){
                     }
                 }
                 */
+
+                game.checkCursorTarget();
             }
             if (event.type == sf::Event::MouseMoved){
                 game.setCursorX(event.mouseMove.x);
                 game.setCursorY(event.mouseMove.y);
 
-                game.checkCursorTarget();
+                //game.checkCursorTarget();
             }
             if (event.type == sf::Event::KeyPressed){
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){

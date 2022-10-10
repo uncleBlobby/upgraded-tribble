@@ -29,7 +29,9 @@ class Game {
         //Tree trees[TREES_TO_SPAWN];
 
 
-        Entity entities[MAX_ENTITIES];
+        //Entity entities[MAX_ENTITIES];
+
+        std::vector<Entity> entities;
 
     public:
         Game();

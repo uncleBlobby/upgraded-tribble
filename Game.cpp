@@ -31,7 +31,7 @@ void Game::addTree(){
 
 void Game::drawTrees(sf::RenderWindow& window) const {
     for (int i = 0; i < int(trees.size()); i++){
-        trees[i].drawTree(window);
+            trees[i].drawTree(window);       
     }
 }
 
