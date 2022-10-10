@@ -19,6 +19,10 @@ float Player::getXPos() const {
     return xPos;
 }
 
+float Player::getYPos() const {
+    return yPos;
+}
+
 void Player::setXVelocity(float velX){
     if (velocity.x <= MAX_SPEED && velocity.x >= -MAX_SPEED){
         velocity.x += velX;
@@ -63,9 +67,23 @@ void Player::drawPlayer(sf::RenderWindow& window) const {
 void Player::displayPlayerInfo(sf::RenderWindow& window) const {
     sf::Text playerInfo;
     playerInfo.setFont(font);
-    playerInfo.setString(std::to_string(getXPos()));
+    
     playerInfo.setCharacterSize(12);
     playerInfo.setFillColor(sf::Color::White);
+   
     playerInfo.setPosition(0.f, 0.f);
+    playerInfo.setString("Player X:");
+    window.draw(playerInfo);
+    
+    playerInfo.setString(std::to_string(getXPos()));
+    playerInfo.setPosition(100.f, 0.f);
+    window.draw(playerInfo);
+
+    playerInfo.setPosition(0.f, 13.f);
+    playerInfo.setString("Player Y:");
+    window.draw(playerInfo);
+
+    playerInfo.setPosition(100.f, 13.f);
+    playerInfo.setString(std::to_string(getYPos()));
     window.draw(playerInfo);
 }
