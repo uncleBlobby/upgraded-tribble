@@ -1,5 +1,7 @@
-#include "Player.h"
-#include "Tree.h"
+#include "Game.h"
+#include "Font.h"
+
+sf::Font font = loadFont();
 
 int main(){
     srand (time(NULL));
@@ -7,6 +9,8 @@ int main(){
 
     sf::RenderWindow window(sf::VideoMode(1920/2, 1080/2), "SFML Game");
     window.setFramerateLimit(60);
+
+    Game game;
 
     Player player;
 
@@ -35,6 +39,10 @@ int main(){
                         printf("Clicked inside tree!\n");
                     }
                 }
+            }
+            if (event.type == sf::Event::MouseMoved){
+                game.setCursorX(event.mouseMove.x);
+                game.setCursorY(event.mouseMove.y);
             }
             if (event.type == sf::Event::KeyPressed){
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
@@ -87,10 +95,12 @@ int main(){
 
         player.move(delta);
         player.drawPlayer(window);
-        player.displayPlayerInfo(window);
+        //player.displayPlayerInfo(window);
 
         tree.drawTree(window);
         tree2.drawTree(window);
+
+        game.displayDebugInfo(window, player);
 
 
         // end the current frame

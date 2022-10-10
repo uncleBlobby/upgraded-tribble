@@ -1,3 +1,8 @@
+#ifndef tree_h
+#define tree_h
+
+#pragma once
+
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -28,3 +33,5 @@ class Tree {
 
         void drawTree(sf::RenderWindow &window) const;
 };
+
+#endif

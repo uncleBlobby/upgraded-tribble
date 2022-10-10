@@ -1,3 +1,8 @@
+#ifndef font_h
+#define font_h
+
+#pragma once
+
 #include <SFML/Graphics.hpp>
 
 sf::Font loadFont(){
@@ -10,3 +15,5 @@ sf::Font loadFont(){
     return font;
 
 }
+
+#endif

@@ -1,8 +1,6 @@
 #include <time.h>
 #include "Tree.h"
 
-
-
 Tree::Tree(){
     xPos = rand() % 500;
     yPos = rand() % 500;

@@ -1,7 +1,4 @@
 #include "Player.h"
-#include "Font.h"
-
-sf::Font font = loadFont();
 
 Player::Player(){
     xPos = 0.0f;
@@ -64,6 +61,7 @@ void Player::drawPlayer(sf::RenderWindow& window) const {
     window.draw(rectangle);
 }
 
+/*
 void Player::displayPlayerInfo(sf::RenderWindow& window) const {
     sf::Text playerInfo;
     playerInfo.setFont(font);
@@ -87,3 +85,4 @@ void Player::displayPlayerInfo(sf::RenderWindow& window) const {
     playerInfo.setString(std::to_string(getYPos()));
     window.draw(playerInfo);
 }
+*/

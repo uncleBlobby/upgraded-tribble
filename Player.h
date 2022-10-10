@@ -1,3 +1,8 @@
+#ifndef player_h
+#define player_h
+
+#pragma once
+
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -53,3 +58,5 @@ class Player {
 
         void displayPlayerInfo(sf::RenderWindow& window) const;
 };
+
+#endif
