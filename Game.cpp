@@ -72,3 +72,15 @@ void Game::displayDebugInfo(sf::RenderWindow& window, Player& player) const {
     gameInfo.setString(std::to_string(getCursorY()));
     window.draw(gameInfo);
 }
+
+void Game::checkCursorTarget() const {
+    for (int i = 0; i < TREES_TO_SPAWN; i++){
+        if (cursorX > trees[i].getXPos() && cursorX < (trees[i].getXPos() + trees[i].getWidth())){
+            if (cursorY > trees[i].getYPos() && cursorY < (trees[i].getYPos() + trees[i].getHeight())){
+                printf("Cursor is over tree!\n");
+            } else {
+                printf("Cursor is not over tree!\n");
+            }
+        }
+    }
+}

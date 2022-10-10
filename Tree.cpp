@@ -9,9 +9,13 @@ Tree::Tree(){
     width = 10;
 
     rectangle = sf::RectangleShape(sf::Vector2f(width, height));
+    circle = sf::CircleShape(15.f);
 
     rectangle.setPosition(xPos, yPos);
     rectangle.setFillColor(sf::Color(139, 69, 19));
+
+    circle.setPosition(xPos - width, yPos);
+    circle.setFillColor(sf::Color(34, 139, 34));
 }
 
 int Tree::getXPos() const {
@@ -32,4 +36,5 @@ int Tree::getWidth() const {
 
 void Tree::drawTree(sf::RenderWindow& window) const {
     window.draw(rectangle);
+    window.draw(circle);
 }

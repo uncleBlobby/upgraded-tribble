@@ -46,6 +46,8 @@ int main(){
             if (event.type == sf::Event::MouseMoved){
                 game.setCursorX(event.mouseMove.x);
                 game.setCursorY(event.mouseMove.y);
+
+                game.checkCursorTarget();
             }
             if (event.type == sf::Event::KeyPressed){
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
@@ -101,6 +103,7 @@ int main(){
         //player.displayPlayerInfo(window);
 
         game.drawTrees(window);
+        //game.checkCursorTarget();
 
         game.displayDebugInfo(window, player);
 

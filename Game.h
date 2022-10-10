@@ -42,6 +42,8 @@ class Game {
         // display
 
         void displayDebugInfo(sf::RenderWindow& window, Player& player) const;
+
+        void checkCursorTarget() const;
 };
 
 #endif

@@ -17,6 +17,7 @@ class Tree {
         int width;
 
         sf::RectangleShape rectangle;
+        sf::CircleShape circle;
 
     public:
         Tree();
