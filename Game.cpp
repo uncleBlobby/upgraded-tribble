@@ -23,6 +23,16 @@ void Game::setCursorY(int y){
     cursorY = y;
 }
 
+void Game::addTree(int i){
+    trees[i] = Tree();
+}
+
+void Game::drawTrees(sf::RenderWindow& window) const {
+    for (int i = 0; i < TREES_TO_SPAWN; i++){
+        trees[i].drawTree(window);
+    }
+}
+
 void Game::displayDebugInfo(sf::RenderWindow& window, Player& player) const {
     sf::Text gameInfo;
     gameInfo.setFont(font);

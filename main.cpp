@@ -7,15 +7,16 @@ int main(){
     srand (time(NULL));
     printf("Hello, SFML2!\n");
 
-    sf::RenderWindow window(sf::VideoMode(1920/2, 1080/2), "SFML Game");
+    sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML Game");
     window.setFramerateLimit(60);
 
     Game game;
 
     Player player;
 
-    Tree tree;
-    Tree tree2;
+    for (int i = 0; i < TREES_TO_SPAWN; i++){
+        game.addTree(i);
+    }
 
     sf::Clock clock;
 
@@ -31,6 +32,7 @@ int main(){
                 printf("Mouse x: %d\n", event.mouseButton.x);
                 printf("Mouse y: %d\n", event.mouseButton.y);
 
+                /*
                 printf("Tree1.x: %d\n", tree.getXPos());
                 printf("Tree1.y: %d\n", tree.getYPos());
 
@@ -39,6 +41,7 @@ int main(){
                         printf("Clicked inside tree!\n");
                     }
                 }
+                */
             }
             if (event.type == sf::Event::MouseMoved){
                 game.setCursorX(event.mouseMove.x);
@@ -97,8 +100,7 @@ int main(){
         player.drawPlayer(window);
         //player.displayPlayerInfo(window);
 
-        tree.drawTree(window);
-        tree2.drawTree(window);
+        game.drawTrees(window);
 
         game.displayDebugInfo(window, player);
 

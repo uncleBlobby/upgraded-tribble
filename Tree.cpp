@@ -1,9 +1,10 @@
 #include <time.h>
 #include "Tree.h"
+#include "Game.h"
 
 Tree::Tree(){
-    xPos = rand() % 500;
-    yPos = rand() % 500;
+    xPos = rand() % WINDOW_WIDTH;
+    yPos = rand() % WINDOW_HEIGHT;
     height = rand() % 50 + 25;
     width = 10;
 
