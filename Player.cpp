@@ -1,13 +1,22 @@
 #include "Player.h"
+#include "Font.h"
+
+sf::Font font = loadFont();
 
 Player::Player(){
-    xPos = 50.0f;
-    yPos = 50.0f;
+    xPos = 0.0f;
+    yPos = 0.0f;
     height = 25.0f;
     width = 25.0f;
 
     velocity = sf::Vector2f(0.f, 0.f);
     rectangle = sf::RectangleShape(sf::Vector2f(width, height));
+
+    rectangle.setPosition(xPos, yPos);
+}
+
+float Player::getXPos() const {
+    return xPos;
 }
 
 void Player::setXVelocity(float velX){
@@ -28,7 +37,8 @@ void Player::move(float delta){
     xPos += (velocity.x * delta);
     yPos += (velocity.y * delta);
     
-    rectangle.move(velocity.x, velocity.y);
+    rectangle.setPosition(xPos, yPos);
+    //rectangle.move(velocity.x, velocity.y);
 }
 
 void Player::stop(char axis){
@@ -46,6 +56,16 @@ void Player::stop(char axis){
 
 }
 
-void Player::drawPlayer(sf::RenderWindow& window){
+void Player::drawPlayer(sf::RenderWindow& window) const {
     window.draw(rectangle);
+}
+
+void Player::displayPlayerInfo(sf::RenderWindow& window) const {
+    sf::Text playerInfo;
+    playerInfo.setFont(font);
+    playerInfo.setString(std::to_string(getXPos()));
+    playerInfo.setCharacterSize(12);
+    playerInfo.setFillColor(sf::Color::White);
+    playerInfo.setPosition(0.f, 0.f);
+    window.draw(playerInfo);
 }

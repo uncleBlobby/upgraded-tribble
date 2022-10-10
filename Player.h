@@ -4,7 +4,8 @@
 
 #include <stdio.h>
 
-const float MAX_SPEED = 2.f;
+const float MAX_SPEED = 100.f;
+const float ACCELERATION = 50.f;
 
 class Player {
     private:
@@ -48,5 +49,7 @@ class Player {
 
         // draw
 
-        void drawPlayer(sf::RenderWindow& window);
+        void drawPlayer(sf::RenderWindow& window) const;
+
+        void displayPlayerInfo(sf::RenderWindow& window) const;
 };

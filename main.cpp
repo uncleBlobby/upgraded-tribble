@@ -19,23 +19,23 @@ int main(){
             }
             if (event.type == sf::Event::KeyPressed){
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-                    printf("Move player right!\n");
-                    player.setXVelocity(1.f);
+                    //printf("Move player right!\n");
+                    player.setXVelocity(ACCELERATION);
                 }
                 
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-                    printf("Move player left!\n");
-                    player.setXVelocity(-1.f);
+                    //printf("Move player left!\n");
+                    player.setXVelocity(-ACCELERATION);
                 }
 
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-                    printf("Move player right!\n");
-                    player.setYVelocity(-1.f);
+                    //printf("Move player right!\n");
+                    player.setYVelocity(-ACCELERATION);
                 }
                 
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-                    printf("Move player left!\n");
-                    player.setYVelocity(1.f);
+                    //printf("Move player left!\n");
+                    player.setYVelocity(ACCELERATION);
                 }
 
             }
@@ -64,8 +64,11 @@ int main(){
         // render loop
         window.clear(sf::Color::Black);
 
+        
+
         player.move(delta);
         player.drawPlayer(window);
+        player.displayPlayerInfo(window);
 
 
         // end the current frame
