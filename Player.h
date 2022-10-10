@@ -4,6 +4,8 @@
 
 #include <stdio.h>
 
+const float MAX_SPEED = 2.f;
+
 class Player {
     private:
         float xPos;
@@ -38,6 +40,11 @@ class Player {
         void setVelocity(sf::Vector2f v);
         void setXVelocity(float velX);
         void setYVelocity(float velY);
+
+        // utility
+
+        void move(float delta);
+        void stop(char axis);
 
         // draw
 
