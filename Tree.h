@@ -9,10 +9,10 @@
 
 #include <stdio.h>
 
-class Tree {
+#include "Entity.h"
+
+class Tree: public Entity{
     private:
-        int xPos;
-        int yPos;
         int height;
         int width;
 
@@ -22,13 +22,9 @@ class Tree {
     public:
         Tree();
 
-        int getXPos() const;
-        int getYPos() const;
         int getHeight() const;
         int getWidth() const;
 
-        void setXPos(int x);
-        void setYPos(int y);
         void setHeight(int h);
         void setWidth(int w);
 
