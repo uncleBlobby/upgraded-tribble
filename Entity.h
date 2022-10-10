@@ -10,6 +10,8 @@ class Entity {
         float yPos;
 
         std::string uuid;
+
+        std::string type;
     
     public:
 
@@ -18,6 +20,9 @@ class Entity {
 
         void setXPos(float x);
         void setYPos(float y);
+
+        std::string getType() const;
+        void setType(std::string s);
 
         std::string getID() const;
         void initID();

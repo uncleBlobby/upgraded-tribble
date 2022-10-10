@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include <typeinfo>
+
 extern sf::Font font;
 
 Game::Game(){
@@ -79,8 +81,9 @@ void Game::checkCursorTarget() const {
             if (cursorY > trees[i].getYPos() && cursorY < (trees[i].getYPos() + trees[i].getHeight())){
                 // printf("Cursor is over tree: %s\n", trees[i].getId());
                 std::cout << "Cursor is over tree: " << trees[i].getID() << std::endl;
+                std::cout << "Type of entity: " << trees[i].getType() << std::endl;
             } else {
-                printf("Cursor is not over tree!\n");
+                //printf("Cursor is not over tree!\n");
             }
         }
     }

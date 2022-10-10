@@ -9,6 +9,7 @@ Tree::Tree(){
     width = 10;
 
     initID();
+    setType("tree");
 
     rectangle = sf::RectangleShape(sf::Vector2f(width, height));
     circle = sf::CircleShape(15.f);
