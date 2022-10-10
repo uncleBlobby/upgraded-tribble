@@ -8,6 +8,7 @@
 #include <SFML/System.hpp>
 
 #include <stdio.h>
+#include <string>
 
 #include "Entity.h"
 
@@ -15,6 +16,8 @@ class Tree: public Entity{
     private:
         int height;
         int width;
+
+        std::string id;
 
         sf::RectangleShape rectangle;
         sf::CircleShape circle;
@@ -24,6 +27,8 @@ class Tree: public Entity{
 
         int getHeight() const;
         int getWidth() const;
+
+        std::string getId() const;
 
         void setHeight(int h);
         void setWidth(int w);

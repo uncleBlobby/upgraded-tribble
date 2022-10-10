@@ -77,7 +77,8 @@ void Game::checkCursorTarget() const {
     for (int i = 0; i < TREES_TO_SPAWN; i++){
         if (cursorX > trees[i].getXPos() && cursorX < (trees[i].getXPos() + trees[i].getWidth())){
             if (cursorY > trees[i].getYPos() && cursorY < (trees[i].getYPos() + trees[i].getHeight())){
-                printf("Cursor is over tree!\n");
+                // printf("Cursor is over tree: %s\n", trees[i].getId());
+                std::cout << "Cursor is over tree: " << trees[i].getId() << std::endl;
             } else {
                 printf("Cursor is not over tree!\n");
             }
