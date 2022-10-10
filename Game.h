@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -12,6 +13,7 @@
 #include "Player.h"
 #include "Tree.h"
 #include "Entity.h"
+#include "Selector.h"
 
 const int WINDOW_WIDTH = 1920;
 const int WINDOW_HEIGHT = 1080;
@@ -33,6 +35,8 @@ class Game {
 
         std::vector<Entity> entities;
 
+        std::string mouseTarget;
+
     public:
         Game();
 
@@ -42,10 +46,14 @@ class Game {
 
         void getCursorTarget() const;
 
+        std::string getMouseTarget() const;
+
         // setters
 
         void setCursorX(int x);
         void setCursorY(int y);
+
+        void setMouseTarget(std::string s);
 
         void addTree();
 
@@ -55,7 +63,7 @@ class Game {
 
         void displayDebugInfo(sf::RenderWindow& window, Player& player) const;
 
-        void checkCursorTarget() const;
+        void checkCursorTarget(sf::RenderWindow& window);
 };
 
 #endif

@@ -7,6 +7,8 @@ extern sf::Font font;
 Game::Game(){
     cursorX = 0;
     cursorY = 0;
+
+    mouseTarget = "";
 }
 
 int Game::getCursorX() const {
@@ -17,12 +19,20 @@ int Game::getCursorY() const {
     return cursorY;
 }
 
+std::string Game::getMouseTarget() const {
+    return mouseTarget;
+}
+
 void Game::setCursorX(int x){
     cursorX = x;
 }
 
 void Game::setCursorY(int y){
     cursorY = y;
+}
+
+void Game::setMouseTarget(std::string s){
+    mouseTarget = s;
 }
 
 void Game::addTree(){
@@ -73,15 +83,26 @@ void Game::displayDebugInfo(sf::RenderWindow& window, Player& player) const {
     gameInfo.setPosition(100.f, 38.f);
     gameInfo.setString(std::to_string(getCursorY()));
     window.draw(gameInfo);
+
+    gameInfo.setPosition(0.f, 50.f);
+    gameInfo.setString("Mouse Target:");
+    window.draw(gameInfo);
+
+    gameInfo.setPosition(100.f, 50.f);
+    gameInfo.setString(getMouseTarget());
+    window.draw(gameInfo);
 }
 
-void Game::checkCursorTarget() const {
+void Game::checkCursorTarget(sf::RenderWindow& window){
     for (int i = 0; i < TREES_TO_SPAWN; i++){
         if (cursorX > trees[i].getXPos() && cursorX < (trees[i].getXPos() + trees[i].getWidth())){
             if (cursorY > trees[i].getYPos() && cursorY < (trees[i].getYPos() + trees[i].getHeight())){
                 // printf("Cursor is over tree: %s\n", trees[i].getId());
                 std::cout << "Cursor is over tree: " << trees[i].getID() << std::endl;
                 std::cout << "Type of entity: " << trees[i].getType() << std::endl;
+                setMouseTarget(trees[i].getID());
+                //Selector s;
+                //s.drawSelector(window);
             } else {
                 //printf("Cursor is not over tree!\n");
             }
