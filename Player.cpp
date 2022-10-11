@@ -3,6 +3,8 @@
 #include "Entity.h"
 
 #include <iostream>
+#include <cstdlib>
+#include <cmath>
 
 Player::Player(){
     xPos = 0.0f;
@@ -22,6 +24,12 @@ float Player::getXPos() const {
 
 float Player::getYPos() const {
     return yPos;
+}
+
+float Player::getDistanceToEntity(Entity e) const {
+    float distanceX = abs(xPos - e.getXPos());
+    float distanceY = abs(yPos - e.getYPos());
+    return distanceX + distanceY;
 }
 
 void Player::setXVelocity(float velX){

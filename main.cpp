@@ -29,9 +29,9 @@ int main(){
                 window.close();
             }
             if (event.type == sf::Event::MouseButtonPressed){
-                printf("Mouse button clicked!\n");
-                printf("Mouse x: %d\n", event.mouseButton.x);
-                printf("Mouse y: %d\n", event.mouseButton.y);
+                //printf("Mouse button clicked!\n");
+                //printf("Mouse x: %d\n", event.mouseButton.x);
+                //printf("Mouse y: %d\n", event.mouseButton.y);
                 //std::cout << "Test UUID: " << generateUUID() << std::endl;
 
                 /*
@@ -44,7 +44,11 @@ int main(){
                     }
                 }
                 */
-                game.action(game.returnCursorTargetEntity());
+                std::cout << "Distance to target: " << player.getDistanceToEntity(game.returnCursorTargetEntity()) << std::endl;
+                if (player.getDistanceToEntity(game.returnCursorTargetEntity()) <= 100){
+                    game.action(game.returnCursorTargetEntity());
+                }
+                
 
                 //game.checkCursorTarget(window);
             }

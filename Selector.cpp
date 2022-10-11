@@ -18,15 +18,15 @@ Selector::Selector(std::string entityUUID){
 }
 
 Selector::Selector(Tree tree){
-    xPos = tree.getXPos() - (tree.getWidth()/2);
-    yPos = tree.getYPos();
+    xPos = tree.getXPos() - (tree.getWidth());
+    yPos = tree.getYPos() - (tree.getHeight()/25);
 
     height = tree.getHeight() * 1.25;
-    width = tree.getWidth() * 2;
+    width = tree.getWidth() * 3;
 
     rectangle = sf::RectangleShape(sf::Vector2f(width, height));
     rectangle.setPosition(getXPos(), getYPos());
-    rectangle.setFillColor(sf::Color::White);
+    rectangle.setFillColor(sf::Color(255, 255, 255, 66));
 
 
 }

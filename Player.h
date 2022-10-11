@@ -39,6 +39,8 @@ class Player {
         float getXVelocity() const;
         float getYVelocity() const;
 
+        float getDistanceToEntity(Entity e) const;
+
         // setters
 
         void setXPos(float x);
