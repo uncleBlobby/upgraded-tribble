@@ -74,9 +74,18 @@ void Game::action(Entity e) {
     }
 }
 
-void Game::displayDebugInfo(sf::RenderWindow& window, Player& player) const {
+void Game::displayDebugInfo(sf::RenderWindow& window, Player& player, float delta) const {
+    int fps = 1.f / delta;
+
+    
     sf::Text gameInfo;
     gameInfo.setFont(font);
+
+    gameInfo.setPosition(1800.f, 0.f);
+    gameInfo.setCharacterSize(24);
+    gameInfo.setFillColor(sf::Color::White);
+    gameInfo.setString("FPS: " + std::to_string(fps));
+    window.draw(gameInfo);
     
     gameInfo.setCharacterSize(12);
     gameInfo.setFillColor(sf::Color::White);

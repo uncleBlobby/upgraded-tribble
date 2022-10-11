@@ -29,21 +29,6 @@ int main(){
                 window.close();
             }
             if (event.type == sf::Event::MouseButtonPressed){
-                //printf("Mouse button clicked!\n");
-                //printf("Mouse x: %d\n", event.mouseButton.x);
-                //printf("Mouse y: %d\n", event.mouseButton.y);
-                //std::cout << "Test UUID: " << generateUUID() << std::endl;
-
-                /*
-                printf("Tree1.x: %d\n", tree.getXPos());
-                printf("Tree1.y: %d\n", tree.getYPos());
-
-                if(event.mouseButton.x > tree.getXPos() && event.mouseButton.x < (tree.getXPos() + tree.getWidth())){
-                    if (event.mouseButton.y > tree.getYPos() && event.mouseButton.y < (tree.getYPos() + tree.getHeight())){
-                        printf("Clicked inside tree!\n");
-                    }
-                }
-                */
                 std::cout << "Distance to target: " << player.getDistanceToEntity(game.returnCursorTargetEntity()) << std::endl;
                 if (player.getDistanceToEntity(game.returnCursorTargetEntity()) <= player.getReachDistance()){
                     game.action(game.returnCursorTargetEntity());
@@ -100,6 +85,7 @@ int main(){
         // reset clock every frame
         sf::Time elapsed = clock.restart();
         float delta = elapsed.asSeconds();
+        //printf("Delta Time: %f\n", delta);
 
         // gameupdate loop
 
@@ -117,7 +103,7 @@ int main(){
         
         game.drawSelector(window);
 
-        game.displayDebugInfo(window, player);
+        game.displayDebugInfo(window, player, delta);
 
 
         // end the current frame

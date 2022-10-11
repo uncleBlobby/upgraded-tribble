@@ -72,7 +72,7 @@ class Game {
 
         // display
 
-        void displayDebugInfo(sf::RenderWindow& window, Player& player) const;
+        void displayDebugInfo(sf::RenderWindow& window, Player& player, float delta) const;
 
         void checkCursorTarget(sf::RenderWindow& window);
 

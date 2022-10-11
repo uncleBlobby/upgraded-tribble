@@ -7,8 +7,8 @@
 #include <cmath>
 
 Player::Player(){
-    xPos = 0.0f;
-    yPos = 0.0f;
+    xPos = WINDOW_WIDTH /2;
+    yPos = WINDOW_HEIGHT /2;
     height = 25.0f;
     width = 25.0f;
 
