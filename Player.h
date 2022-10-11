@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 const float MAX_SPEED = 100.f;
-const float ACCELERATION = 50.f;
+const float ACCELERATION = 75.f;
 
 class Player {
     private:
