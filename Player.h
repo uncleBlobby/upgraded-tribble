@@ -22,6 +22,8 @@ class Player {
         float height;
         float width;
 
+        float reachDistance;
+
         sf::Vector2f velocity;
 
         sf::RectangleShape rectangle;
@@ -38,6 +40,8 @@ class Player {
         sf::Vector2f getVelocity() const;
         float getXVelocity() const;
         float getYVelocity() const;
+
+        float getReachDistance() const;
 
         float getDistanceToEntity(Entity e) const;
 

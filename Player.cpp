@@ -12,6 +12,8 @@ Player::Player(){
     height = 25.0f;
     width = 25.0f;
 
+    reachDistance = 100.f;
+
     velocity = sf::Vector2f(0.f, 0.f);
     rectangle = sf::RectangleShape(sf::Vector2f(width, height));
 
@@ -24,6 +26,10 @@ float Player::getXPos() const {
 
 float Player::getYPos() const {
     return yPos;
+}
+
+float Player::getReachDistance() const {
+    return reachDistance;
 }
 
 float Player::getDistanceToEntity(Entity e) const {

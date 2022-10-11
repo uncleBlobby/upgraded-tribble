@@ -45,7 +45,7 @@ int main(){
                 }
                 */
                 std::cout << "Distance to target: " << player.getDistanceToEntity(game.returnCursorTargetEntity()) << std::endl;
-                if (player.getDistanceToEntity(game.returnCursorTargetEntity()) <= 100){
+                if (player.getDistanceToEntity(game.returnCursorTargetEntity()) <= player.getReachDistance()){
                     game.action(game.returnCursorTargetEntity());
                 }
                 
