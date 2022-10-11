@@ -14,7 +14,8 @@ class Entity {
         std::string type;
     
     public:
-
+        Entity();
+        
         float getXPos() const;
         float getYPos() const;
 

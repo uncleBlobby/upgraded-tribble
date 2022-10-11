@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "Tree.h"
 
 class Selector {
     
@@ -13,6 +14,9 @@ class Selector {
 
     public:
         Selector();
+        Selector(std::string entityUUID);
+
+        Selector(Tree tree);
 
         float getXPos() const;
         float getYPos() const;

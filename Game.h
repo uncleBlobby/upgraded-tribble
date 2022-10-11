@@ -27,6 +27,8 @@ class Game {
         int cursorX;
         int cursorY;
 
+        Selector selector;
+
         std::vector<Tree> trees;
         //Tree trees[TREES_TO_SPAWN];
 
@@ -48,6 +50,11 @@ class Game {
 
         std::string getMouseTarget() const;
 
+        Selector getSelector() const;
+
+        int getTreesLength() const;
+        Tree getTreeAtIndex(int i);
+
         // setters
 
         void setCursorX(int x);
@@ -59,11 +66,19 @@ class Game {
 
         void drawTrees(sf::RenderWindow& window) const;
 
+        void setSelector(Selector s);
+
+        void action(Entity e);
+
         // display
 
         void displayDebugInfo(sf::RenderWindow& window, Player& player) const;
 
         void checkCursorTarget(sf::RenderWindow& window);
+
+        Entity returnCursorTargetEntity();
+
+        void drawSelector(sf::RenderWindow& window);
 };
 
 #endif

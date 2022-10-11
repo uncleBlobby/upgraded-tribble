@@ -1,4 +1,8 @@
+#include "Game.h"
 #include "Player.h"
+#include "Entity.h"
+
+#include <iostream>
 
 Player::Player(){
     xPos = 0.0f;
@@ -59,6 +63,14 @@ void Player::stop(char axis){
 
 void Player::drawPlayer(sf::RenderWindow& window) const {
     window.draw(rectangle);
+}
+
+void Player::action(Entity e) {
+    std::cout << "Player acting on entity: " << e.getID() << std::endl;
+    if (e.getType() == "tree"){
+        std::cout << "entity is a tree." << std::endl;
+        
+    }
 }
 
 /*

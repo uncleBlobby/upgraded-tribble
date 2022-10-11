@@ -7,6 +7,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
+#include "Entity.h"
+#include "Game.h"
+
 #include <stdio.h>
 
 const float MAX_SPEED = 100.f;
@@ -46,6 +49,8 @@ class Player {
         void setVelocity(sf::Vector2f v);
         void setXVelocity(float velX);
         void setYVelocity(float velY);
+
+        void action(Entity e);
 
         // utility
 

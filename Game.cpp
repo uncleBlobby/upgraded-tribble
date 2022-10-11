@@ -23,6 +23,10 @@ std::string Game::getMouseTarget() const {
     return mouseTarget;
 }
 
+Selector Game::getSelector() const {
+    return selector;
+}
+
 void Game::setCursorX(int x){
     cursorX = x;
 }
@@ -35,6 +39,10 @@ void Game::setMouseTarget(std::string s){
     mouseTarget = s;
 }
 
+void Game::setSelector(Selector s){
+    selector = s;
+}
+
 void Game::addTree(){
     trees.push_back(Tree());
 }
@@ -42,6 +50,27 @@ void Game::addTree(){
 void Game::drawTrees(sf::RenderWindow& window) const {
     for (int i = 0; i < int(trees.size()); i++){
             trees[i].drawTree(window);       
+    }
+}
+
+Tree Game::getTreeAtIndex(int i) {
+    return trees[i];
+}
+
+int Game::getTreesLength() const {
+    return trees.size();
+}
+
+void Game::action(Entity e) {
+    std::cout << "Player acting on entity: " << e.getID() << std::endl;
+    if (e.getType() == "tree"){
+        std::cout << "entity is a tree." << std::endl;
+        for (int i = 0; i < int(trees.size()); i++){
+            if (e.getID() == trees[i].getID()){
+                trees.erase(trees.begin()+i);
+            }
+        }
+        
     }
 }
 
@@ -101,11 +130,28 @@ void Game::checkCursorTarget(sf::RenderWindow& window){
                 std::cout << "Cursor is over tree: " << trees[i].getID() << std::endl;
                 std::cout << "Type of entity: " << trees[i].getType() << std::endl;
                 setMouseTarget(trees[i].getID());
-                //Selector s;
-                //s.drawSelector(window);
+                Selector s(trees[i]);
+                setSelector(s);
             } else {
-                //printf("Cursor is not over tree!\n");
+                Selector s;
+                setSelector(s);
             }
         }
     }
+}
+
+Entity Game::returnCursorTargetEntity(){
+    Entity e;
+        for (int i = 0; i < TREES_TO_SPAWN; i++){
+        if (cursorX > trees[i].getXPos() && cursorX < (trees[i].getXPos() + trees[i].getWidth())){
+            if (cursorY > trees[i].getYPos() && cursorY < (trees[i].getYPos() + trees[i].getHeight())){
+                return trees[i];
+            }
+        }
+    }
+    return e;
+}
+
+void Game::drawSelector(sf::RenderWindow& window){
+    selector.drawSelector(window);
 }

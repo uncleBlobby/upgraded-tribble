@@ -44,14 +44,15 @@ int main(){
                     }
                 }
                 */
+                game.action(game.returnCursorTargetEntity());
 
-                game.checkCursorTarget(window);
+                //game.checkCursorTarget(window);
             }
             if (event.type == sf::Event::MouseMoved){
                 game.setCursorX(event.mouseMove.x);
                 game.setCursorY(event.mouseMove.y);
 
-                //game.checkCursorTarget(window);
+                game.checkCursorTarget(window);
                 //game.checkCursorTarget();
             }
             if (event.type == sf::Event::KeyPressed){
@@ -109,6 +110,8 @@ int main(){
 
         game.drawTrees(window);
         //game.checkCursorTarget();
+        
+        game.drawSelector(window);
 
         game.displayDebugInfo(window, player);
 

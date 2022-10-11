@@ -3,6 +3,10 @@
 std::string generateUUID();
 
 
+Entity::Entity(){
+    
+}
+
 float Entity::getXPos() const {
     return xPos;
 }
